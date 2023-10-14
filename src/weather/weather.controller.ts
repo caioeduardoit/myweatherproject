@@ -5,7 +5,7 @@ import axios from 'axios';
 export class WeatherController {
   @Get(':cidade')
   async getWeatherInfo(@Param('cidade') cidade, @Res() res) {
-    const apikey = '56b2ff4fcec440d796a234221232609';
+    const apikey = process.env.WEATHERAPI_KEY;
     const url = `https://api.weatherapi.com/v1/current.json?key=${apikey}&q=${cidade}&aqi=no&lang=pt&alerts=yes`;
 
     try {
